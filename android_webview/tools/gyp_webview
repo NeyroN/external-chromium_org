@@ -44,6 +44,10 @@ DEFINES+=" android_sdk_root=\$(PWD)/${android_sdk}"
 DEFINES+=" android_sdk_version=sdk_version_unused_in_webview_build"
 DEFINES+=" android_toolchain=${ANDROID_TOOLCHAIN}"
 
+# Temporarily disable -Werror in AOSP so that the system-wide default warnings
+# can be changed without breaking Chromium.
+DEFINES+=" werror="
+
 # TODO: Get rid of this block, crbug.com/334021
 if [[ -n "$CHROME_ANDROID_WEBVIEW_OFFICIAL_BUILD" ]]; then
   DEFINES+=" tracing_like_official_build=1"
