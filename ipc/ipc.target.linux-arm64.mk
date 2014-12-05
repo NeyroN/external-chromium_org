@@ -48,7 +48,7 @@ LOCAL_SRC_FILES := \
 # Flags passed to both C and C++ files.
 MY_CFLAGS_Debug := \
 	--param=ssp-buffer-size=4 \
-	-Werror \
+	 \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \
@@ -135,7 +135,7 @@ LOCAL_CPPFLAGS_Debug := \
 # Flags passed to both C and C++ files.
 MY_CFLAGS_Release := \
 	--param=ssp-buffer-size=4 \
-	-Werror \
+	 \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \

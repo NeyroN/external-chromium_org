@@ -41,6 +41,7 @@ LOCAL_SRC_FILES := \
 MY_CFLAGS_Debug := \
 	-fstack-protector \
 	--param=ssp-buffer-size=4 \
+	 \
 	-fno-strict-aliasing \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
@@ -141,6 +142,7 @@ LOCAL_CPPFLAGS_Debug := \
 MY_CFLAGS_Release := \
 	-fstack-protector \
 	--param=ssp-buffer-size=4 \
+	 \
 	-fno-strict-aliasing \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \

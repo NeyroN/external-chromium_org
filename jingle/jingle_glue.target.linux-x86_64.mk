@@ -39,7 +39,7 @@ LOCAL_SRC_FILES := \
 MY_CFLAGS_Debug := \
 	-fstack-protector \
 	--param=ssp-buffer-size=4 \
-	-Werror \
+	 \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \
@@ -146,7 +146,7 @@ LOCAL_CPPFLAGS_Debug := \
 MY_CFLAGS_Release := \
 	-fstack-protector \
 	--param=ssp-buffer-size=4 \
-	-Werror \
+	 \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \
