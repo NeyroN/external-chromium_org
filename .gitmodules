@@ -1,0 +1,93 @@
+[submodule "sdch/open-vcdiff"]
+	path = sdch/open-vcdiff
+	url = https://android.googlesource.com/platform/external/chromium_org/sdch/open-vcdiff
+[submodule "testing/gtest"]
+	path = testing/gtest
+	url = https://android.googlesource.com/platform/external/chromium_org/testing/gtest
+[submodule "third_party/WebKit"]
+	path = third_party/WebKit
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/WebKit
+[submodule "third_party/angle"]
+	path = third_party/angle
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/angle
+[submodule "third_party/boringssl/src"]
+	path = third_party/boringssl/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/boringssl/src
+[submodule "third_party/brotli/src"]
+	path = third_party/brotli/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/brotli/src
+[submodule "third_party/eyesfree/src/android/java/src/com/googlecode/eyesfree/braille"]
+	path = third_party/eyesfree/src/android/java/src/com/googlecode/eyesfree/braille
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/eyesfree/src/android/java/src/com/googlecode/eyesfree/braille
+[submodule "third_party/freetype"]
+	path = third_party/freetype
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/freetype
+[submodule "third_party/icu"]
+	path = third_party/icu
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/icu
+[submodule "third_party/leveldatabase/src"]
+	path = third_party/leveldatabase/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/leveldatabase/src
+[submodule "third_party/libaddressinput/src"]
+	path = third_party/libaddressinput/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libaddressinput/src
+[submodule "third_party/libjingle/source/talk"]
+	path = third_party/libjingle/source/talk
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libjingle/source/talk
+[submodule "third_party/libjpeg_turbo"]
+	path = third_party/libjpeg_turbo
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libjpeg_turbo
+[submodule "third_party/libphonenumber/src/phonenumbers"]
+	path = third_party/libphonenumber/src/phonenumbers
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libphonenumber/src/phonenumbers
+[submodule "third_party/libphonenumber/src/resources"]
+	path = third_party/libphonenumber/src/resources
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libphonenumber/src/resources
+[submodule "third_party/libsrtp"]
+	path = third_party/libsrtp
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libsrtp
+[submodule "third_party/libvpx"]
+	path = third_party/libvpx
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libvpx
+[submodule "third_party/libyuv"]
+	path = third_party/libyuv
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/libyuv
+[submodule "third_party/mesa/src"]
+	path = third_party/mesa/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/mesa/src
+[submodule "third_party/openmax_dl"]
+	path = third_party/openmax_dl
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/openmax_dl
+[submodule "third_party/opus/src"]
+	path = third_party/opus/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/opus/src
+[submodule "third_party/ots"]
+	path = third_party/ots
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/ots
+[submodule "third_party/sfntly/cpp/src"]
+	path = third_party/sfntly/cpp/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/sfntly/cpp/src
+[submodule "third_party/skia"]
+	path = third_party/skia
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/skia
+[submodule "third_party/smhasher/src"]
+	path = third_party/smhasher/src
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/smhasher/src
+[submodule "third_party/usrsctp/usrsctplib"]
+	path = third_party/usrsctp/usrsctplib
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/usrsctp/usrsctplib
+[submodule "third_party/webrtc"]
+	path = third_party/webrtc
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/webrtc
+[submodule "third_party/yasm/source/patched-yasm"]
+	path = third_party/yasm/source/patched-yasm
+	url = https://android.googlesource.com/platform/external/chromium_org/third_party/yasm/source/patched-yasm
+[submodule "tools/grit"]
+	path = tools/grit
+	url = https://android.googlesource.com/platform/external/chromium_org/tools/grit
+[submodule "tools/gyp"]
+	path = tools/gyp
+	url = https://android.googlesource.com/platform/external/chromium_org/tools/gyp
+[submodule "v8"]
+	path = v8
+	url = https://android.googlesource.com/platform/external/chromium_org/v8
