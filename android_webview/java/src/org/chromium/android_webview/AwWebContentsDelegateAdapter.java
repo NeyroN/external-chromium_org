@@ -19,6 +19,7 @@ import android.webkit.ValueCallback;
 
 import org.chromium.base.ContentUriUtils;
 import org.chromium.base.ThreadUtils;
+import org.chromium.content.browser.ContentVideoView;
 
 /**
  * Adapts the AwWebContentsDelegate interface to the AwContentsClient interface.
@@ -217,6 +218,8 @@ class AwWebContentsDelegateAdapter extends AwWebContentsDelegate {
         if (enterFullscreen) {
             mContentViewClient.enterFullscreen();
         } else {
+            ContentVideoView videoView = ContentVideoView.getContentVideoView();
+            if (videoView != null) videoView.exitFullscreen(false);
             mContentViewClient.exitFullscreen();
         }
     }
