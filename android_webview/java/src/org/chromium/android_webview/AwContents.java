@@ -2123,6 +2123,7 @@ public class AwContents implements SmartClipProvider {
     // draw functor destruction.
     @CalledByNative
     private void invalidateOnFunctorDestroy() {
+        mNativeGLDelegate.detachGLFunctor();
         mContainerView.invalidate();
     }
 
@@ -2478,7 +2479,6 @@ public class AwContents implements SmartClipProvider {
             }
 
             mScrollAccessibilityHelper.removePostedCallbacks();
-            mNativeGLDelegate.detachGLFunctor();
         }
 
         @Override
