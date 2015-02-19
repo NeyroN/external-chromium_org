@@ -36,6 +36,17 @@ bool SkipTextureWorkarounds(const Texture* texture) {
   if (texture->pool() == GL_TEXTURE_POOL_MANAGED_CHROMIUM)
     return true;
 
+  // ==================== FORK ====================
+  // Skip GL_LUMINANCE textures used in WebRTC due to driver bugs.
+  // WebRTC textures do not require sharing to be gin with.
+  GLenum type;
+  GLenum internal_format;
+  if (texture->GetLevelType(GL_TEXTURE_2D, 0, &type, &internal_format) &&
+      internal_format == GL_LUMINANCE) {
+    return true;
+  }
+  // ================== END FORK ==================
+
   return false;
 }
 
