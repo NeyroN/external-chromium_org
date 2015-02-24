@@ -16,7 +16,12 @@
 namespace {
 
 std::string GetProduct() {
-  return "Chrome/" PRODUCT_VERSION;
+    // "Chrome/XX.0.0.0" identifies that this WebView is derived from the
+    // corresponding Chromium version XX.
+    // TODO(gsennton): Use chrome/VERSION file. See http://crbug.com/461383
+    // This was changed but then reverted because of people relying on the
+    // version number being "Chrome/XX.0.0.0"
+    return "Chrome/40.0.0.0";
 }
 
 }
