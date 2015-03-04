@@ -141,6 +141,14 @@ ScopedJavaLocalRef<jstring> WebContentsAndroid::GetURL(JNIEnv* env,
   return ConvertUTF8ToJavaString(env, web_contents_->GetURL().spec());
 }
 
+ScopedJavaLocalRef<jstring> WebContentsAndroid::GetLastCommittedURL(
+    JNIEnv* env,
+    jobject) const {
+  return ConvertUTF8ToJavaString(env,
+                                 web_contents_->GetLastCommittedURL().spec());
+}
+
+
 jboolean WebContentsAndroid::IsIncognito(JNIEnv* env, jobject obj) {
   return web_contents_->GetBrowserContext()->IsOffTheRecord();
 }
@@ -394,6 +402,13 @@ void WebContentsAndroid::PostMessageToFrame(JNIEnv* env, jobject obj,
   params.is_data_raw_string = true;
   params.source_routing_id = MSG_ROUTING_NONE;
   host->Send(new ViewMsg_PostMessageEvent(host->GetRoutingID(), params));
+}
+
+jboolean WebContentsAndroid::HasAccessedInitialDocument(
+    JNIEnv* env,
+    jobject jobj) {
+  return static_cast<content::WebContentsImpl*>(web_contents_)->
+      HasAccessedInitialDocument();
 }
 
 }  // namespace content

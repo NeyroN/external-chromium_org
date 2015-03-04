@@ -18,6 +18,7 @@ GYP_TARGET_DEPENDENCIES := \
 	$(call intermediates-dir-for,GYP,base_base_java_memory_pressure_level_gyp,,,$(GYP_VAR_PREFIX))/base_java_memory_pressure_level.stamp \
 	$(call intermediates-dir-for,GYP,content_content_gamepad_mapping_gyp,,,$(GYP_VAR_PREFIX))/content_gamepad_mapping.stamp \
 	$(call intermediates-dir-for,GYP,content_gesture_event_type_java_gyp,,,$(GYP_VAR_PREFIX))/gesture_event_type_java.stamp \
+	$(call intermediates-dir-for,GYP,content_invalidate_types_java_gyp,,,$(GYP_VAR_PREFIX))/invalidate_types_java.stamp \
 	$(call intermediates-dir-for,GYP,content_popup_item_type_java_gyp,,,$(GYP_VAR_PREFIX))/popup_item_type_java.stamp \
 	$(call intermediates-dir-for,GYP,content_result_codes_java_gyp,,,$(GYP_VAR_PREFIX))/result_codes_java.stamp \
 	$(call intermediates-dir-for,GYP,content_screen_orientation_values_java_gyp,,,$(GYP_VAR_PREFIX))/screen_orientation_values_java.stamp \

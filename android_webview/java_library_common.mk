@@ -50,6 +50,7 @@ $(call intermediates-dir-for,GYP,shared)/enums/certificate_mime_types_java/org/c
 $(call intermediates-dir-for,GYP,shared)/enums/content_gamepad_mapping/org/chromium/content/browser/input/CanonicalAxisIndex.java \
 $(call intermediates-dir-for,GYP,shared)/enums/content_gamepad_mapping/org/chromium/content/browser/input/CanonicalButtonIndex.java \
 $(call intermediates-dir-for,GYP,shared)/enums/gesture_event_type_java/org/chromium/content/browser/GestureEventType.java \
+$(call intermediates-dir-for,GYP,shared)/enums/invalidate_types_java/org/chromium/content_public/browser/InvalidateTypes.java \
 $(call intermediates-dir-for,GYP,shared)/enums/popup_item_type_java/org/chromium/content/browser/input/PopupItemType.java \
 $(call intermediates-dir-for,GYP,shared)/enums/private_key_types_java/org/chromium/net/PrivateKeyType.java \
 $(call intermediates-dir-for,GYP,shared)/enums/result_codes_java/org/chromium/content_public/common/ResultCode.java \

@@ -50,7 +50,6 @@ import org.chromium.content.browser.ContentViewClient;
 import org.chromium.content.browser.ContentViewCore;
 import org.chromium.content.browser.ContentViewStatics;
 import org.chromium.content.browser.SmartClipProvider;
-import org.chromium.content.browser.WebContentsObserver;
 import org.chromium.content.common.CleanupReference;
 import org.chromium.content_public.browser.GestureStateListener;
 import org.chromium.content_public.browser.JavaScriptCallback;
@@ -190,7 +189,7 @@ public class AwContents implements SmartClipProvider {
     private NavigationController mNavigationController;
     private final AwContentsClient mContentsClient;
     private final AwContentViewClient mContentViewClient;
-    private WebContentsObserver mWebContentsObserver;
+    private AwWebContentsObserver mWebContentsObserver;
     private final AwContentsClientBridge mContentsClientBridge;
     private final AwWebContentsDelegateAdapter mWebContentsDelegate;
     private final AwContentsIoThreadClient mIoThreadClient;
@@ -213,6 +212,8 @@ public class AwContents implements SmartClipProvider {
     private boolean mHasRequestedVisitedHistoryFromClient;
     // TODO(boliu): This should be in a global context, not per webview.
     private final double mDIPScale;
+    // Whether the WebView has attempted to do any load (including uncommitted loads).
+    private boolean mDidAttemptLoad = false;
 
     // The base background color, i.e. not accounting for any CSS body from the current page.
     private int mBaseBackgroundColor = Color.WHITE;
@@ -895,6 +896,9 @@ public class AwContents implements SmartClipProvider {
         if (wasWindowFocused) onWindowFocusChanged(wasWindowFocused);
         if (wasFocused) onFocusChanged(true, 0, null);
 
+        // Popups are always assumed as having made a load attempt.
+        mDidAttemptLoad = true;
+
         // Restore injected JavaScript interfaces.
         for (Map.Entry<String, Pair<Object, Class>> entry : javascriptInterfaces.entrySet()) {
             @SuppressWarnings("unchecked")
@@ -1213,6 +1217,19 @@ public class AwContents implements SmartClipProvider {
     public String getUrl() {
         if (isDestroyed()) return null;
         String url =  mWebContents.getUrl();
+        if (url == null || url.trim().isEmpty()) return null;
+        return url;
+    }
+
+    /**
+     * Gets the last committed URL. It represents the current page that is
+     * displayed in WebContents. It represents the current security context.
+     *
+     * @return The URL of the current page or null if it's empty.
+     */
+    public String getLastCommittedUrl() {
+        if (isDestroyed()) return null;
+        String url = mWebContents.getLastCommittedUrl();
         if (url == null || url.trim().isEmpty()) return null;
         return url;
     }
@@ -1773,6 +1790,11 @@ public class AwContents implements SmartClipProvider {
         if (!isDestroyed()) mWebContents.evaluateJavaScript(script, null);
     }
 
+    public boolean hasAccessedInitialDocument() {
+        if (isDestroyed()) return false;
+        return mWebContents.hasAccessedInitialDocument();
+    }
+
     //--------------------------------------------------------------------------------------------
     //  View and ViewGroup method implementations
     //--------------------------------------------------------------------------------------------
@@ -1986,6 +2008,12 @@ public class AwContents implements SmartClipProvider {
 
     public void setNetworkAvailable(boolean networkUp) {
         if (!isDestroyed()) nativeSetJsOnlineProperty(mNativeAwContents, networkUp);
+    }
+
+    public boolean getDidAttemptLoad() {
+        if (mDidAttemptLoad) return mDidAttemptLoad;
+        mDidAttemptLoad = mWebContentsObserver.hasStartedAnyProvisionalLoad();
+        return mDidAttemptLoad;
     }
 
     //--------------------------------------------------------------------------------------------

@@ -81,6 +81,7 @@ include $(LOCAL_PATH)/content/content_resources.target.linux-arm.mk
 include $(LOCAL_PATH)/content/content_strings_grd.target.linux-arm.mk
 include $(LOCAL_PATH)/content/content_utility.target.linux-arm.mk
 include $(LOCAL_PATH)/content/gesture_event_type_java.target.linux-arm.mk
+include $(LOCAL_PATH)/content/invalidate_types_java.target.linux-arm.mk
 include $(LOCAL_PATH)/content/java_set_jni_headers.target.linux-arm.mk
 include $(LOCAL_PATH)/content/motionevent_jni_headers.target.linux-arm.mk
 include $(LOCAL_PATH)/content/popup_item_type_java.target.linux-arm.mk

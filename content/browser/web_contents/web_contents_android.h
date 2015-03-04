@@ -48,6 +48,8 @@ class CONTENT_EXPORT WebContentsAndroid
   void Stop(JNIEnv* env, jobject obj);
   jint GetBackgroundColor(JNIEnv* env, jobject obj);
   base::android::ScopedJavaLocalRef<jstring> GetURL(JNIEnv* env, jobject) const;
+  base::android::ScopedJavaLocalRef<jstring> GetLastCommittedURL(JNIEnv* env,
+                                                                 jobject) const;
   jboolean IsIncognito(JNIEnv* env, jobject obj);
 
   void ResumeResponseDeferredAtStart(JNIEnv* env, jobject obj);
@@ -95,6 +97,9 @@ class CONTENT_EXPORT WebContentsAndroid
                           jobject callback);
   void PostMessageToFrame(JNIEnv* env, jobject obj, jstring frame_id,
       jstring message, jstring source_origin, jstring target_origin);
+
+  jboolean HasAccessedInitialDocument(JNIEnv* env, jobject jobj);
+
  private:
   RenderWidgetHostViewAndroid* GetRenderWidgetHostViewAndroid();
 

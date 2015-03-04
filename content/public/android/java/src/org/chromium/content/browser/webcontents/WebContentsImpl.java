@@ -161,6 +161,11 @@ import org.chromium.content_public.browser.WebContents;
     }
 
     @Override
+    public String getLastCommittedUrl() {
+        return nativeGetLastCommittedURL(mNativeWebContentsAndroid);
+    }
+
+    @Override
     public boolean isIncognito() {
         return nativeIsIncognito(mNativeWebContentsAndroid);
     }
@@ -239,6 +244,11 @@ import org.chromium.content_public.browser.WebContents;
         nativeEvaluateJavaScript(mNativeWebContentsAndroid, script, callback);
     }
 
+    @Override
+    public boolean hasAccessedInitialDocument() {
+        return nativeHasAccessedInitialDocument(mNativeWebContentsAndroid);
+    }
+
     @CalledByNative
     private static void onEvaluateJavaScriptResult(
             String jsonResult, JavaScriptCallback callback) {
@@ -275,6 +285,7 @@ import org.chromium.content_public.browser.WebContents;
     private native void nativeScrollFocusedEditableNodeIntoView(long nativeWebContentsAndroid);
     private native void nativeSelectWordAroundCaret(long nativeWebContentsAndroid);
     private native String nativeGetURL(long nativeWebContentsAndroid);
+    private native String nativeGetLastCommittedURL(long nativeWebContentsAndroid);
     private native boolean nativeIsIncognito(long nativeWebContentsAndroid);
     private native void nativeResumeResponseDeferredAtStart(long nativeWebContentsAndroid);
     private native void nativeSetHasPendingNavigationTransitionForTesting(
@@ -288,4 +299,6 @@ import org.chromium.content_public.browser.WebContents;
             String script, JavaScriptCallback callback);
     private native void nativePostMessageToFrame(long nativeWebContentsAndroid, String frameId,
             String message, String sourceOrigin, String targetOrigin);
+    private native boolean nativeHasAccessedInitialDocument(
+            long nativeWebContentsAndroid);
 }

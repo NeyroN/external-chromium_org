@@ -18,6 +18,7 @@
         '../base/base.gyp:base_java_memory_pressure_level',
         '../content/content.gyp:content_gamepad_mapping',
         '../content/content.gyp:gesture_event_type_java',
+        '../content/content.gyp:invalidate_types_java',
         '../content/content.gyp:popup_item_type_java',
         '../content/content.gyp:result_codes_java',
         '../content/content.gyp:screen_orientation_values_java',

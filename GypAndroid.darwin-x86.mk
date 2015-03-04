@@ -81,6 +81,7 @@ include $(LOCAL_PATH)/content/content_resources.target.darwin-x86.mk
 include $(LOCAL_PATH)/content/content_strings_grd.target.darwin-x86.mk
 include $(LOCAL_PATH)/content/content_utility.target.darwin-x86.mk
 include $(LOCAL_PATH)/content/gesture_event_type_java.target.darwin-x86.mk
+include $(LOCAL_PATH)/content/invalidate_types_java.target.darwin-x86.mk
 include $(LOCAL_PATH)/content/java_set_jni_headers.target.darwin-x86.mk
 include $(LOCAL_PATH)/content/motionevent_jni_headers.target.darwin-x86.mk
 include $(LOCAL_PATH)/content/popup_item_type_java.target.darwin-x86.mk
