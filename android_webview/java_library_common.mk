@@ -19,6 +19,7 @@ LOCAL_SRC_FILES += \
     ../net/android/java/src/org/chromium/net/IRemoteAndroidKeyStoreCallbacks.aidl \
     ../net/android/java/src/org/chromium/net/IRemoteAndroidKeyStore.aidl \
     $(call all-java-files-under, ../base/android/java/src) \
+    $(call all-java-files-under, ../device/battery/android/java/src) \
     $(call all-java-files-under, ../media/base/android/java/src) \
     $(call all-java-files-under, ../mojo/android/system/src) \
     $(call all-java-files-under, ../mojo/public/java/bindings/src) \
