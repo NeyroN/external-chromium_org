@@ -541,6 +541,9 @@ void BrowserMainLoop::MainMessageLoopStart() {
     SurfaceTextureManager::InitInstance(new BrowserSurfaceTextureManager);
   }
 
+#if 0
+  // Screen orientation lock doesn't work on WebView yet. Skip setting the
+  // delegate to force all lock attempts to report failure to calling JS code.
   {
     TRACE_EVENT0("startup",
                  "BrowserMainLoop::Subsystem:ScreenOrientationProvider");
@@ -548,6 +551,7 @@ void BrowserMainLoop::MainMessageLoopStart() {
         new ScreenOrientationDelegateAndroid());
     ScreenOrientationProvider::SetDelegate(screen_orientation_delegate_.get());
   }
+#endif
 #endif
 
   if (parsed_command_line_.HasSwitch(switches::kMemoryMetrics)) {
