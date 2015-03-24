@@ -833,7 +833,7 @@ public class AwContents implements SmartClipProvider {
         if (mWebContentsObserver != null) {
             mWebContentsObserver.detachFromWebContents();
         }
-        mWebContentsObserver = new AwWebContentsObserver(mWebContents, mContentsClient);
+        mWebContentsObserver = new AwWebContentsObserver(mWebContents, this, mContentsClient);
     }
 
     /**
@@ -2012,7 +2012,7 @@ public class AwContents implements SmartClipProvider {
 
     public boolean getDidAttemptLoad() {
         if (mDidAttemptLoad) return mDidAttemptLoad;
-        mDidAttemptLoad = mWebContentsObserver.hasStartedAnyProvisionalLoad();
+        mDidAttemptLoad = mWebContentsObserver.hasStartedNonApiProvisionalLoadInMainFrame();
         return mDidAttemptLoad;
     }
 
