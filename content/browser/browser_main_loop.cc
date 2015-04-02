@@ -587,6 +587,21 @@ int BrowserMainLoop::PreCreateThreads() {
   }
 #endif
 
+  bool initialize_gpu_data_manager = true;
+#if defined(OS_ANDROID)
+  // On Android, GLSurface::InitializeOneOff() must be called before initalizing
+  // the GpuDataManagerImpl as it uses the GL bindings. crbug.com/326295
+  if (!gfx::GLSurface::InitializeOneOff()) {
+    LOG(ERROR) << "GLSurface::InitializeOneOff failed";
+    initialize_gpu_data_manager = false;
+  }
+#endif
+
+  // Initialize the GpuDataManager before we set up the MessageLoops because
+  // otherwise we'll trigger the assertion about doing IO on the UI thread.
+  if (initialize_gpu_data_manager)
+    GpuDataManagerImpl::GetInstance()->Initialize();
+
 #if !defined(OS_IOS) && (!defined(GOOGLE_CHROME_BUILD) || defined(OS_ANDROID))
   // Single-process is an unsupported and not fully tested mode, so
   // don't enable it for official Chrome builds (except on Android).
@@ -991,21 +1006,6 @@ int BrowserMainLoop::BrowserThreadsStarted() {
 
 #if !defined(OS_IOS)
   HistogramSynchronizer::GetInstance();
-
-  bool initialize_gpu_data_manager = true;
-#if defined(OS_ANDROID)
-  // On Android, GLSurface::InitializeOneOff() must be called before initalizing
-  // the GpuDataManagerImpl as it uses the GL bindings. crbug.com/326295
-  if (!gfx::GLSurface::InitializeOneOff()) {
-    LOG(ERROR) << "GLSurface::InitializeOneOff failed";
-    initialize_gpu_data_manager = false;
-  }
-#endif
-
-  // Initialize the GpuDataManager before we set up the MessageLoops because
-  // otherwise we'll trigger the assertion about doing IO on the UI thread.
-  if (initialize_gpu_data_manager)
-    GpuDataManagerImpl::GetInstance()->Initialize();
 
   bool always_uses_gpu = true;
   bool established_gpu_channel = false;

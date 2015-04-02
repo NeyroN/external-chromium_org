@@ -18,7 +18,7 @@ const char kSoftwareRenderingListJson[] = LONG_STRING_CONST(
 {
   "name": "software rendering list",
   // Please update the version number whenever you change this file.
-  "version": "9.13",
+  "version": "9.13.0.1",
   "entries": [
     {
       "id": 1,
@@ -1180,6 +1180,21 @@ LONG_STRING_CONST(
       "gl_renderer": "PowerVR Rogue.*",
       "features": [
         "accelerated_2d_canvas",
+        "gpu_rasterization"
+      ]
+    },
+    {
+      "id": 105,
+      "description": "Disable GPU raster on Mali-T760",
+      "os": {
+        "type": "android",
+        "version": {
+          "op": ">=",
+          "value": "5.0"
+        }
+      },
+      "gl_renderer": ".*Mali-T760.*",
+      "features": [
         "gpu_rasterization"
       ]
     }
