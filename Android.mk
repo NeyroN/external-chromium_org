@@ -18,7 +18,6 @@ GYP_CONFIGURATION := Release
 ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
 GYP_MAKEFILE_STEMS := \
 	$(addprefix $(CHROMIUM_DIR)/v8/tools/gyp/, \
-		generate_trig_table.host \
 		js2c.host \
 		mksnapshot.host \
 		v8_base.host \
@@ -34,7 +33,6 @@ GYP_MAKEFILE_STEMS := \
 		icuuc.host \
 		icui18n.target \
 		icuuc.target \
-		system_icu.target \
 	)
 else
 # Not using a prebuilt; include the manually-written makefile that builds all
